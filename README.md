@@ -1,4 +1,4 @@
-# Going from Azure Pipelines to Github Actions
+# Changing from Azure Pipelines to Github Actions
 
 Github Actions has the same basic structure as Azure Pipelines and shares a lot of other similarities with each other. Usually you find the differences when it comes to syntax and the so called _Actions_ which are equal to built-in tasks in Azure Pipelines. 
 
