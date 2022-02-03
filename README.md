@@ -18,7 +18,7 @@ on:
 
 Inside _jobs_ (same as _stages_  on Pipelines) you define what you want Github Actions to do. First you name the job and then decide which type of machine to use by using _runs-on_. 
 
-Inside _steps_ you define all the tasks that you want to be executed as parts of the job. For example here can we see a job called _build_ which runs on a linux machine. First it uses the action _actions/checkout@v2_ so your workflow can access the repository. Then with _actions/setup-dotnet@v1_ it sets up a.NET CLI environment. After that we are able to write commands by using _run_:
+Inside _steps_ you define all the tasks that you want to be executed as parts of the job. For example here can we see a job called _build_ which runs on a linux machine. First it uses the action _actions/checkout@v2_ so your workflow can access the repository. Then with _actions/setup-dotnet@v1_ it sets up a.NET CLI environment. After that we are able to write dotnet commands by using _run_:
 
 ```yml
 jobs:
