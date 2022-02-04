@@ -4,7 +4,7 @@ Github Actions has the same basic structure as Azure Pipelines and shares a lot 
 
 To get started with Github Actions you need a ``` .github/workflows ``` directory in your repository on Github and inside the folder _workflows_  you can add a ``` .yml ``` file which will be your Github Actions file. A shortcut to create it is to click on the _Actions_ bar in your Github repository and _set up a workflow yourself_ :
 
-![Actions](Github-actions-markdown/git_actions.PNG)
+![Actions](https://github.com/joanro123/Github-actions-markdown/blob/main/git_actions.PNG)
 
 To decide when Github Actions will trigger a workflow you need to define it by using _on_ (same as _trigger_ on Azure Pipelines), for example here where it is triggered when making a push or pull request to the master branch:
 
