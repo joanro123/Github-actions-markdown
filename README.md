@@ -46,3 +46,20 @@ run: echo ${{ env.first_name }}
 env:
   first_name: John
 ```
+
+Working with secure files is not as simple on Github Actions compared to Azure Pipelines. A workaround is to convert your file to a base 64 string and save that value on your repositorys _Secrets_. You can find it by clicking _Settings_ in your repository and choosing _Secrets_ and _Actions_ where you are able to name it and add the value. 
+
+We are able to store the secret value in a variable by writing _secrets._ and the name of the secret, for example ```${{ secrets.SECRET_VALUE }}```. 
+In this example we recreate the file from a base 64 string and save it to a temporary directory and therefore we are able to use it. 
+
+```yml
+ - name: Create file secretFile.pfx
+        run: |
+          $secretFile = Join-Path -Path $env:RUNNER_TEMP -ChildPath "secretFile.pfx";
+          $encodedBytes = [System.Convert]::FromBase64String($env:fileb64);
+          Set-Content $secretFile -Value $encodedBytes -AsByteStream;
+        shell: pwsh
+        env:
+          fileb64: ${{ secrets.SECRETFILE_FILEB64 }}
+```
+The obvious advantage of using Github Actions is that you do not need tools outside of Github in order to automate your workflow. Just click on _Actions_ in your repository, choose an already existing workflow or create your own and you are own your way!
